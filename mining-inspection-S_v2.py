@@ -78,6 +78,8 @@ def prin_logs(data):
     path = configi['server_config']['log_path']
     filename = str(datetime.datetime.now().year) + str(datetime.datetime.now().month) + str(
         datetime.datetime.now().day) + "_serverlog.log"
+    if not os.path.exists(path):
+        os.mkdir(path)
     f = open(path + '/' + filename, 'a', encoding="utf-8")
     f.write(str(datetime.datetime.now()) + '\t' + data + '\n')
     f.close()
